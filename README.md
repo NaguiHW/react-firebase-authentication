@@ -1,5 +1,8 @@
 # Authentication in React with Firebase
 
+<h1><b>ALERT!!!</b></h1>
+If you are going to clone or fork the project, remember to change the firebase configuration with your own project configuration.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
