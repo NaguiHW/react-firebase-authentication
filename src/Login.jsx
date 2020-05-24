@@ -24,10 +24,19 @@ const Login = () => {
   const firebase = useFirebaseApp();
 
   // Submit function (Log in user)
-  const handleSubmit = async(e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     // Log in code here.
-    await firebase.auth().signInWithEmailAndPassword(user.email, user.password)
+    firebase.auth().signInWithEmailAndPassword(user.email, user.password)
+      .then(result => {
+        if (!result.user.emailVerified) {
+          setUser({
+            ...user,
+            error: 'Please verify your email before to continue',
+          })
+          firebase.auth().signOut();
+        }
+      })
       .catch(error => {
         // Update the error
         setUser({

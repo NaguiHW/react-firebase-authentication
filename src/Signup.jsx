@@ -26,10 +26,10 @@ const Signup = () => {
   const firebase = useFirebaseApp();
 
   // Submit function (Create account)
-  const handleSubmit = async(e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     // Sign up code here.
-    await firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+    firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
       .then(result => {
         // Update the nickname
         result.user.updateProfile({
